@@ -40,9 +40,9 @@ if __name__ == "__main__":
     carro2 = Carro(nm_modelo2, nm_marca2, nm_cor2, 0, False)
 
     '''
-    Controlando o carro até ele atingir 600 Km
+    Controlando os carros até ele atingir 600 Km
     '''
-    while carro1.odometro or carro2.odometro < 600:
+    while carro1.odometro < 600 or carro2.odometro < 600:
         try:
             print('Escolhe o carro para controlar:')
             print('1- Carro 1')
@@ -60,8 +60,8 @@ if __name__ == "__main__":
             print("Erro!")
             print(e)
 
-    #carro1.desligar()
-    #carro2.desligar()
+    carro1.desligar()
+    carro2.desligar()
     print(carro1)
     print(carro2)
 
