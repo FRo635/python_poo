@@ -7,7 +7,8 @@ class Carro:
     tanque = 0.0
     consumo_medio: float
 
-    def __init__(self, modelo: str, marca: str, cor: str, odometro: float, motor: bool, tanque: float, consumo_medio: float):
+    def __init__(self, modelo: str, marca: str, cor: str, odometro: float,
+                 motor: bool, tanque: float, consumo_medio: float):
         self.modelo = modelo
         self.marca = marca
         self.cor = cor
@@ -46,7 +47,7 @@ class Carro:
             raise Exception("Erro: Motor já desligado!")
 
     def __str__(self):
-        info = (f'Carro {self.modelo}, marca {self.marca}, '
-                f'cor {self.cor}\n{self.odometro} Km, '
-                f'motor {self.motor_on} com consumo de {self.consumo_medio} km/l com tanque de {self.tanque}')
+        info = (f"Carro {self.modelo}, marca {self.marca}, "
+                f"cor {self.cor}\n{self.odometro} Km, "
+                f"motor {self.motor_on} com consumo de {self.consumo_medio} km/l com tanque de {self.tanque}")
         return info

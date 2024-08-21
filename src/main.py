@@ -20,7 +20,7 @@ def operar_carro(carro):
             t = float(input("Informe o tempo: "))
             carro.acelerar(v, t)
 
-        print('Infos atuais do carro')
+        print("Infos atuais do carro")
         print(carro)
     except Exception as e:
         print("Erro!")
@@ -42,19 +42,16 @@ if __name__ == "__main__":
 
     print("--Carro 1--")
     carro1 = intro()
-    # intro(carro1)
     print("--Carro 2--")
     carro2 = intro()
-    # intro(carro2)
 
-    '''
-    Controlando os carros até ele atingir 600 Km
-    '''
+    # Controlando os carros até ele atingir 600 Km
+
     while (carro1.odometro < 600 and carro2.odometro < 600) and (carro1.tanque > 0 or carro2.tanque > 0):
         try:
-            print('Escolhe o carro para controlar:')
-            print('1- Carro 1')
-            print('2- Carro 2')
+            print("Escolhe o carro para controlar:")
+            print("1- Carro 1")
+            print("2- Carro 2")
 
             op = 0
             while op not in (1, 2):
@@ -73,7 +70,10 @@ if __name__ == "__main__":
     if carro2.motor_on:
         carro2.desligar()
 
+    print("\nRELATORIO FINAL:")
+    print("--Carro 1--")
     print(carro1)
+    print("\n--Carro 2--")
     print(carro2)
 
     if carro1.odometro > carro2.odometro:
