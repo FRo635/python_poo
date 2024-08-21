@@ -68,8 +68,10 @@ if __name__ == "__main__":
             print("Erro!")
             print(e)
 
-    carro1.desligar()
-    carro2.desligar()
+    if carro1.motor_on:
+        carro1.desligar()
+    if carro2.motor_on:
+        carro2.desligar()
 
     print(carro1)
     print(carro2)
