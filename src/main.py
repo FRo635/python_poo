@@ -3,9 +3,9 @@ from frota import *
 
 def operar_carro(carro):
     try:
-        print('1- Ligar motor')
-        print('2- Desligar motor')
-        print('3- Acelerar')
+        print("1- Ligar motor")
+        print("2- Desligar motor")
+        print("3- Acelerar")
 
         op = 0
         while op not in (1, 2, 3):
@@ -27,30 +27,38 @@ def operar_carro(carro):
         print(e)
 
 
-if __name__ == "__main__":
-    print('Cadastre um carro')
-    nm_modelo1 = input('Digite o modelo para carro 1: ')
-    nm_marca1 = input('Digite a marca para carro 1: ')
-    nm_cor1 = input('Digite a cor para carro 1: ')
-    nm_modelo2 = input('Digite o modelo para carro 2: ')
-    nm_marca2 = input('Digite a marca para carro 2: ')
-    nm_cor2 = input('Digite a cor para carro 2: ')
+def intro():
+    modelo = input("Digite o modelo do carro: ")
+    marca = input("Digite a marca do carro: ")
+    cor = input("Digite a cor do carro: ")
+    consumo = float(input("Consumo médio em km/l: "))
+    litros = float(input("Nivel do tanque em litros: "))
+    carro = Carro(modelo, marca, cor, 0, False, litros, consumo)
+    return carro
 
-    carro1 = Carro(nm_modelo1, nm_marca1, nm_cor1, 0, False)
-    carro2 = Carro(nm_modelo2, nm_marca2, nm_cor2, 0, False)
+
+if __name__ == "__main__":
+    print("Cadastre um carro")
+
+    print("--Carro 1--")
+    carro1 = intro()
+    # intro(carro1)
+    print("--Carro 2--")
+    carro2 = intro()
+    # intro(carro2)
 
     '''
     Controlando os carros até ele atingir 600 Km
     '''
-    while carro1.odometro < 600 or carro2.odometro < 600:
+    while (carro1.odometro < 600 and carro2.odometro < 600) and (carro1.tanque > 0 or carro2.tanque > 0):
         try:
             print('Escolhe o carro para controlar:')
             print('1- Carro 1')
             print('2- Carro 2')
 
             op = 0
-            while op not in (1,2):
-                op = int(input("Digite as opcoes[1-2]: "))
+            while op not in (1, 2):
+                op = int(input("Digite as opçoes[1-2]: "))
 
             if op == 1:
                 operar_carro(carro1)
@@ -62,10 +70,11 @@ if __name__ == "__main__":
 
     carro1.desligar()
     carro2.desligar()
+
     print(carro1)
     print(carro2)
 
-    if carro1.odometro >= 600:
-        print("Carro 1 foi o primeiro a atingir 600 kilometros")
-    if carro2.odometro >= 600:
-        print("Carro 2 foi o primeiro a atingir 600 kilometros")
+    if carro1.odometro > carro2.odometro:
+        print("Carro 1 ganhou!")
+    else:
+        print("Carro 2 ganhou!")
