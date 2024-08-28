@@ -47,7 +47,8 @@ if __name__ == "__main__":
 
     # Controlando os carros até ele atingir 600 Km
 
-    while (carro1.odometro < 600 and carro2.odometro < 600) and (carro1.tanque > 0 or carro2.tanque > 0):
+    while (carro1.get_odometro() < 600 and carro2.get_odometro() < 600)\
+            and (carro1.get_tanque() > 0 or carro2.get_tanque() > 0):
         try:
             print("Escolhe o carro para controlar:")
             print("1- Carro 1")
@@ -65,9 +66,9 @@ if __name__ == "__main__":
             print("Erro!")
             print(e)
 
-    if carro1.motor_on:
+    if carro1.get_motor():
         carro1.desligar()
-    if carro2.motor_on:
+    if carro2.get_motor():
         carro2.desligar()
 
     print("\nRELATORIO FINAL:")
@@ -76,7 +77,7 @@ if __name__ == "__main__":
     print("\n--Carro 2--")
     print(carro2)
 
-    if carro1.odometro > carro2.odometro:
+    if carro1.get_odometro() > carro2.get_odometro():
         print("Carro 1 ganhou!")
     else:
         print("Carro 2 ganhou!")
