@@ -1,7 +1,7 @@
 class Pessoa:
-    __nome : str
-    __rg : str
-    __cpf : str
+    __nome: str
+    __rg: str
+    __cpf: str
 
     def __init__(self, nome, rg, cpf):
         self.__nome = nome
